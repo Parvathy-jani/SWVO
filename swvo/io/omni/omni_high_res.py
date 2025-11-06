@@ -98,11 +98,8 @@ class OMNIHighRes:
             file_paths, time_intervals = self._get_processed_file_list(start_time, end_time, cadence_min)
 
             for file_path, time_interval in zip(file_paths, time_intervals):
-                if file_path.exists():
-                    if reprocess_files:
-                        file_path.unlink()
-                    else:
-                        continue
+                if file_path.exists() and not reprocess_files:
+                    continue
 
                 data = self._get_data_from_omni(
                     start=time_interval[0],

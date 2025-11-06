@@ -103,18 +103,15 @@ class HpGFZ:
                         f"Hp{self.index_number}/Hp{self.index_number}_ap{self.index_number}_nowcast.txt"
                     )
 
+                if file_path.exists() and not reprocess_files:
+                    continue
+
                 for filename_download in filenames_download:
                     logging.debug(f"Downloading file {self.URL + filename_download} ...")
 
                     wget.download(self.URL + filename_download, str(temporary_dir))
 
                     logging.debug("Processing file ...")
-
-                    if file_path.exists():
-                        if reprocess_files:
-                            file_path.unlink()
-                        else:
-                            continue
 
                 filenames_download = [x[5:] for x in filenames_download]  # strip of folder of filename
 

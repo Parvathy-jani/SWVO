@@ -141,11 +141,8 @@ class OMNILowRes:
             for file_path, time_interval in zip(file_paths, time_intervals):
                 filename = "omni2_" + str(time_interval[0].year) + ".dat"
 
-                if file_path.exists():
-                    if reprocess_files:
-                        file_path.unlink()
-                    else:
-                        continue
+                if file_path.exists() and not reprocess_files:
+                    continue
 
                 logging.debug(f"Downloading file {self.URL + filename} ...")
 

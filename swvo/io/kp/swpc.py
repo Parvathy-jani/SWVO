@@ -83,11 +83,8 @@ class KpSWPC:
 
         file_path = self.data_dir / f"SWPC_KP_FORECAST_{target_date.strftime('%Y%m%d')}.csv"
 
-        if file_path.exists():
-            if reprocess_files:
-                file_path.unlink()
-            else:
-                return
+        if file_path.exists() and not reprocess_files:
+            return
 
         temporary_dir = Path("./temp_kp_swpc_wget")
         temporary_dir.mkdir(exist_ok=True, parents=True)

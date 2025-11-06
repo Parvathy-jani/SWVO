@@ -88,11 +88,8 @@ class DSTWDC:
 
                 URL = self.URL.replace("YYYYMM", time_interval.strftime("%Y%m"))
 
-                if file_path.exists():
-                    if reprocess_files:
-                        file_path.unlink()
-                    else:
-                        continue
+                if file_path.exists() and not reprocess_files:
+                    continue
 
                 logging.debug(f"Downloading file {URL + filename} ...")
 
@@ -191,8 +188,6 @@ class DSTWDC:
         df["timestamp"] = pd.to_datetime(df["timestamp"], utc=True) + pd.Timedelta(hours=1)
         df.index = df["timestamp"]
         df.drop(columns=["timestamp"], inplace=True)
-
-        file_path.unlink()
 
         return df
 
