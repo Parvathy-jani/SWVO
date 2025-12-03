@@ -76,7 +76,7 @@ def _interp_flux_parallel(
         finite_idx = np.argwhere(
             np.isfinite(energy[it, :]) & np.isfinite(flux[it, :, al_right_idx])
         )
-        if finite_idx.size == 0:
+        if finite_idx.size <2 :
             result.append(np.nan)
             continue
 
