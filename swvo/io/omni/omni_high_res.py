@@ -288,6 +288,7 @@ class OMNIHighRes:
             "proton_density": 999.8,
             "temperature": 9999998.0,
             "pdyn": 99.0,
+            "sym-h": 99999.0,
         }
 
         df.columns = maxes.keys()
