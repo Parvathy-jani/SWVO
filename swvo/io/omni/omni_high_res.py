@@ -351,7 +351,7 @@ class OMNIHighRes:
             "start_date": start.strftime("%Y%m%d"),
             "end_date": end.strftime("%Y%m%d"),
         }
-        common_vars = {"vars": ["13", "14", "17", "18", "21", "25", "26", "27"]}
+        common_vars = {"vars": ["13", "14", "17", "18", "21", "25", "26", "27", "42"]}
         if cadence == 1:
             params = {"res": "min", "spacecraft": "omni_min"}
             payload.update(params)
