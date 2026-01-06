@@ -62,7 +62,7 @@ class OMNIHighRes:
         start_time: datetime,
         end_time: datetime,
         cadence_min: float = 1,
-        reprocess_files: bool = False,
+        reprocess_files: bool = True,
     ) -> None:
         """Download and process OMNI High Resolution data files.
 
